@@ -64,7 +64,7 @@
                   x.querySelector("h2").textContent = item["location"]["country"] + " " + item["id"]["name"];
                   x.querySelector("h3").textContent = item["name"]["first"] + " " +  item["name"]["last"];
                   x.querySelector(".mdc-card__media").style="background-image: url(" + item["picture"]["large"]; + ");";
-                  x.querySelector(".mdc-typography--body2").textContent = item["email"] + item["dob"]["date"];
+                  x.querySelector(".mdc-typography--body2").textContent = item["email"] + "\r\n" + item["dob"]["date"];
                   document.querySelector("body").appendChild(x);
                   console.log(data);
               }
