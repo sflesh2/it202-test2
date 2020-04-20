@@ -49,20 +49,22 @@
         <i class="material-icons mdc-icon-button__icon">favorite_border</i>
       </button>
       <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="Share" data-mdc-ripple-is-unbounded="true">share</button>
-      <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="More options" data-mdc-ripple-is-unbounded="true">more_vert</button>
+      <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="More options" data-mdc-ripple-is-unbounded="true">person</button>
     </div>
   </div>
 </div>
       
       <script>
-          fetch("https://randomuser.me/api/")
+          fetch("https://randomuser.me/api/?results=8&gender=female&location=australia")
           .then(response => response.json())
           .then(data => {
               for(let item of data["results"]){
                   let x = document.querySelector(".template").cloneNode(true);
                   x.classList.remove("template");
                   x.querySelector("h2").textContent = item["location"]["country"] + " " + item["id"]["name"];
-                  x.querySelector("h3").textContent = 
+                  x.querySelector("h3").textContent = item["name"]["first"] + " " +  item["name"]["last"];
+                  x.querySelector(".mdc-card__media").style="background-image: url(" + item["picture"]["large"]; + ");";
+                  x.querySelector(".mdc-typography--body2").textContent = item["email"] + item["dob"]["date"];
                   document.querySelector("body").appendChild(x);
                   console.log(data);
               }
