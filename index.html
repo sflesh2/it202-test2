@@ -55,7 +55,7 @@
 </div>
       
       <script>
-          fetch("https://randomuser.me/api/?results=8&gender=female&location=australia")
+          fetch("https://randomuser.me/api/?results=8&gender=female&nat=au,nz")
           .then(response => response.json())
           .then(data => {
               for(let item of data["results"]){
